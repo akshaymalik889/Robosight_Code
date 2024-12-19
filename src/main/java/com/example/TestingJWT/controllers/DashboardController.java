@@ -18,12 +18,12 @@ public class DashboardController {
     private final DashboardService dashboardService;
 
     @GetMapping("/{robotId}")
-    public ResponseEntity<List<RobotData>> getRobotDataByRobotId(@PathVariable Long robotId) {
+    public ResponseEntity<List<RobotData>> getRobotDataByRobotId(@PathVariable String robotId) {
         return ResponseEntity.ok(dashboardService.getRobotDataByRobotId(robotId));
     }
 
     @GetMapping("/{robotId}/calculate-risk")
-    public ResponseEntity<Map<String, Object>> calculateRiskStatus(@PathVariable Long robotId) {
+    public ResponseEntity<Map<String, Object>> calculateRiskStatus(@PathVariable String robotId) {
         Map<String, Object> response = dashboardService.calculateRiskStatus(robotId);
         return ResponseEntity.ok(response);
     }

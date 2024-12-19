@@ -22,7 +22,7 @@ public class RobotDataController {
     private final RobotMLService robotMLService;
 
     @GetMapping("/{robotId}")
-    public ResponseEntity<?> addRobotData(@PathVariable Long robotId) {
+    public ResponseEntity<?> addRobotData(@PathVariable String robotId) {
         Robot robot = robotService.getRobotById(robotId);
         if (robot == null) {
             return ResponseEntity.badRequest().body("Robot with ID " + robotId + " not found.");
@@ -41,7 +41,7 @@ public class RobotDataController {
     }
 
     @PostMapping("/{robotId}")
-    public ResponseEntity<?> uploadTelemetryData(@PathVariable Long robotId, @RequestBody String telemetryJson) {
+    public ResponseEntity<?> uploadTelemetryData(@PathVariable String robotId, @RequestBody String telemetryJson) {
         Robot robot = robotService.getRobotById(robotId);
         System.out.println("robot details by IDDDDDD:"+robot);
         if (robot == null) {

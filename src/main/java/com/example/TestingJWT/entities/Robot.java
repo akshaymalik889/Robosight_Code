@@ -13,8 +13,7 @@ import java.util.List;
 public class Robot {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id; // Use user-selected ID directly
 
     private String name;
 
@@ -25,6 +24,5 @@ public class Robot {
 
     @OneToMany(mappedBy = "robot", cascade = CascadeType.ALL)
     private List<RobotData> robotDataList;
-
 
 }

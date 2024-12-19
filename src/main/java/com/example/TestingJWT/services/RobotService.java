@@ -1,6 +1,5 @@
 package com.example.TestingJWT.services;
 
-
 import com.example.TestingJWT.entities.Robot;
 import com.example.TestingJWT.repositories.RobotRepository;
 import lombok.RequiredArgsConstructor;
@@ -14,20 +13,15 @@ public class RobotService {
 
     private final RobotRepository robotRepository;
 
-
-    public Robot saveRobot(Robot robot)
-    {
+    public Robot saveRobot(Robot robot) {
         return robotRepository.save(robot);
     }
 
-    public List<Robot> getAllRobots()
-    {
-        return robotRepository.findAll();
-    }
-
-    public Robot getRobotById(Long id) {
+    public Robot getRobotById(String id) {
         return robotRepository.findById(id).orElse(null);
     }
 
-
+    public List<Robot> getAllRobots() {
+        return robotRepository.findAll();
+    }
 }

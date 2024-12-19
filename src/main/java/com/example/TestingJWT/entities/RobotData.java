@@ -35,6 +35,6 @@ public class RobotData {
     private Robot robot;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "robot_data_id") // Foreign key to link with RobotData
+    @JoinColumn(name = "robot_data_id")
     private List<RobotPose> poses;
 }

@@ -31,14 +31,15 @@ public class RobotMLService {
         this.robotRepository = robotRepository;
     }
 
-    public List<RobotData> getAndSaveRiskData(Long robotId) {
-        String mlApiUrl = "http://localhost:8000/api/telemetry/get_all";
+    public List<RobotData> getAndSaveRiskData(String robotId) {
+        log.info("ROBOT IDDD : " + robotId);
+        String mlApiUrl = "http://localhost:8000/api/robots/" + robotId + "/history";
 
         try {
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
 
-            HttpEntity<Long> request = new HttpEntity<>(robotId, headers);
+            HttpEntity<String> request = new HttpEntity<>(robotId, headers);
 
             ResponseEntity<String> response = restTemplate.exchange(
                     mlApiUrl, HttpMethod.GET, request, String.class
@@ -97,7 +98,7 @@ public class RobotMLService {
         }
     }
 
-    public List<RobotData> processTelemetryData(Long robotId, String telemetryJson) {
+    public List<RobotData> processTelemetryData(String robotId, String telemetryJson) {
         String mlApiUrl = "http://localhost:8000/api/telemetry/push";
 
         try {

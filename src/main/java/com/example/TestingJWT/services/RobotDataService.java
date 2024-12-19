@@ -20,12 +20,12 @@ public class RobotDataService {
     }
 
     @Transactional
-    public List<RobotData> getDataByRobotId(Long robotId) {
+    public List<RobotData> getDataByRobotId(String robotId) {
         return robotDataRepository.findByRobotId(robotId);
     }
 
     @Transactional
-    public void deleteDataByRobotId(Long robotId) {
+    public void deleteDataByRobotId(String robotId) {
         robotDataRepository.deleteByRobotId(robotId);
     }
 }

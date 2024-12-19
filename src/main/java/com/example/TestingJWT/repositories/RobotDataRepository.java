@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface RobotDataRepository extends JpaRepository<RobotData, Long> {
 
-    List<RobotData> findByRobotId(Long robotId);
+    List<RobotData> findByRobotId(String robotId);
 
-    void deleteByRobotId(Long robotId);
+    void deleteByRobotId(String robotId);
 }

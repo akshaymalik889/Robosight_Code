@@ -16,12 +16,12 @@ public class DashboardService {
 
     private final RobotDataRepository robotDataRepository;
 
-    public List<RobotData> getRobotDataByRobotId(Long robotId) {
+    public List<RobotData> getRobotDataByRobotId(String robotId) {
         return robotDataRepository.findByRobotId(robotId);
 
     }
 
-    public Map<String, Object> calculateRiskStatus(Long robotId) {
+    public Map<String, Object> calculateRiskStatus(String robotId) {
         List<RobotData> robotDataList = getRobotDataByRobotId(robotId);
         Map<String, Object> response = new HashMap<>();
 
